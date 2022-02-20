@@ -25,7 +25,7 @@ const Header = () => {
     <div className="header">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="#">
+          <Link className="navbar-brand" to="/">
             <img className="img-fluid" src={logo} alt="" />
           </Link>
           <button
@@ -46,6 +46,16 @@ const Header = () => {
                   User_Name
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/faq">
+                  FAQ
+                </Link>
+              </li>
+
+              
+          
+
+
               <li className="nav-item">
                 <Link className="nav-link" to="/">
                   Orders

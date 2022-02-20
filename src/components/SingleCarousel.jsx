@@ -13,9 +13,11 @@ const SingleCarousel = ({item}) => {
            <div className="col-md-5 ">
                <h2>{item.title}</h2>
                <p>{item.details}</p>
+               <div className="middle-button">
                <button className="shop-now">show now</button>
+               </div>
            </div>
-           <div className="col-md-6">
+           <div className="col-md-6 middle-image">
            <img  data-aos="fade-down" src={item.img} alt="img" className='img-fluid' />
            </div>
         </div>
