@@ -259,6 +259,21 @@
   padding: 10px 15px;
   margin: 10px 0;
 }
+.total-amount {
+  font-weight: bold;
+  font-size: 25px;
+}
+.order {
+  outline: none;
+  border: none;
+  background-color: #256fef;
+  font-weight: bold;
+  font-size: 16px;
+  color: #f3f3f3;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin: 10px 0;
+}
 @media screen and (max-width: 768px) {
   .container-fluid {
     margin: 0 !important;

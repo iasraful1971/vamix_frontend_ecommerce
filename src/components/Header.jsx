@@ -5,8 +5,10 @@ import { styled } from '@mui/material/styles';
 import React, { useState } from "react";
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaBars } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import logo from '../../src/image/logo.png';
+
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -20,7 +22,10 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
   
 const Header = () => {
-    const [click, setClick] =useState(false)
+    const [click, setClick] =useState(false);
+
+    const {cartItems} =useSelector(state => state.cartReducer)
+
   return (
     <div className="header">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -67,15 +72,16 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item cart-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/cart">
                 <IconButton aria-label="cart">
-                <StyledBadge badgeContent={2} color="secondary">
+                <StyledBadge badgeContent={cartItems.length} color="secondary">
                 <ShoppingCartIcon />
                 </StyledBadge>
                 </IconButton>
                 </Link>
               </li>
-             
+
+            
             </ul>
           </div>
         </div>

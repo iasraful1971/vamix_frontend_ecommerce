@@ -3,6 +3,7 @@ import { doc, getDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
+import Spinner from "../extra/spinners/Spinner";
 import firebaseDb from "../firebase/fireConfig";
 
 
@@ -29,7 +30,7 @@ const ProductInfo = () => {
     <Layout>
       
      {
-         product && 
+         !product ? <Spinner/> : 
          <div className="container product-details my-5">
               <Link style={{color: '#000', fontSize:'20px', padding:"10px 0", textDecoration:'none'}} className="bradcame"  to="/">
           Back to products /

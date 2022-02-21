@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ScrollToTop from './extra/scrollToTop/ScrollToTop';
 import Cart from './pages/Cart';
 import FAQ from './pages/FAQ';
 import Home from './pages/HomePage';
@@ -23,7 +24,9 @@ const App = () => {
           <Route path='/register' element={<Registration/>}/>
           <Route path='/product_info/:productId' element={<ProductInfo/>} />
           <Route path='*' element={<NotFound/>} />
+         
         </Routes>
+        <ScrollToTop/>
       </BrowserRouter>
     </div>
   );
