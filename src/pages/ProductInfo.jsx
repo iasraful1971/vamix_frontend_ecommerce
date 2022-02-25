@@ -1,6 +1,7 @@
 import { Rating } from "@mui/material";
 import { doc, getDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import Spinner from "../extra/spinners/Spinner";
@@ -9,7 +10,11 @@ import firebaseDb from "../firebase/fireConfig";
 
 const ProductInfo = () => {
   const [product, setProduct] = useState();
-    const params = useParams()
+  const dispatch = useDispatch();
+    const params = useParams();
+    const { cartItems } = useSelector((state) => state.cartReducer);
+ 
+
   useEffect(() => {
     getData();
   }, []);
@@ -22,9 +27,17 @@ const ProductInfo = () => {
         console.log(productTemp.data())
       setProduct(productTemp.data());
     } catch (error) {
-      console.log(error);
+      
     }
   }
+  const addToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+
+  };
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <Layout>
@@ -47,7 +60,7 @@ const ProductInfo = () => {
                      <hr />
                      <h3 className="product-price">$ {product.price}</h3>
                      <div className="cart-button">
-                     <button className="add-to-cart-details">Add to cart</button>
+                     <button onClick={() => addToCart(product)} className="add-to-cart-details">Add to cart</button>
                      </div>
                  </div>
              </div>

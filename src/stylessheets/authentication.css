@@ -1,0 +1,63 @@
+.form-control {
+  box-shadow: none;
+  margin-top: 15px !important;
+}
+.form-control:focus {
+  box-shadow: none !important;
+}
+.register {
+  box-shadow: none;
+  outline: none;
+  border: none;
+  background-color: black;
+  color: aliceblue;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+
+.log-in-form {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  padding: 40px 20px;
+  background-color: white;
+  border-radius: 4px;
+  z-index: 999 !important;
+}
+.register-parent {
+  height: 100vh;
+
+  background-color: aliceblue;
+}
+
+.register-parent .row {
+  height: 100vh;
+
+  align-items: center;
+}
+.register-parent h2 {
+  font-weight: 600;
+  font-size: 25px;
+}
+.register-top {
+  height: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #003f5c;
+  z-index: 0 !important;
+}
+.z1 {
+  z-index: 1 !important;
+}
+
+.convert {
+  font-size: 18px;
+  padding: 10px 0;
+  text-decoration: none;
+}
+.convert:hover {
+  text-decoration: underline;
+  padding: 10px 0;
+}

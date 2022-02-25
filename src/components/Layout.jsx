@@ -1,14 +1,17 @@
 import React from 'react';
+import Spinner from '../extra/spinners/Spinner';
 import Footer from './Footer';
 import Header from './Header';
 
-const Layout = ({children}) => {
+const Layout = ({children , loading}) => {
     return (
         <div>
             <Header/>
-            <div className="content">
+            {
+                loading ? <Spinner/> :  <div className="content">
                 {children}
             </div>
+            }
             <Footer/>
         </div>
     );

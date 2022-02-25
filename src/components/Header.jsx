@@ -19,13 +19,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
       padding: '0 4px',
     },
   }));
-
+ 
   
 const Header = () => {
     const [click, setClick] =useState(false);
-
+    //  const {user} =JSON.parse(localStorage.getItem('currentUser'))
     const {cartItems} =useSelector(state => state.cartReducer)
-
+ 
   return (
     <div className="header">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,6 +33,15 @@ const Header = () => {
           <Link className="navbar-brand" to="/">
             <img className="img-fluid" src={logo} alt="" />
           </Link>
+          <div className="cart-item">
+                <Link className="" to="/cart">
+                <IconButton aria-label="cart">
+                <StyledBadge badgeContent={cartItems.length} color="secondary">
+                <ShoppingCartIcon />
+                </StyledBadge>
+                </IconButton>
+                </Link>
+              </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -46,14 +55,33 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/register">
-                  User_Name
+                  {user && 
+                  user.email.substring(0,user.email.length-10)
+                  }
+                </Link>
+              </li> */}
+             
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/">
+                  Home
                 </Link>
               </li>
               <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href={'/' ? '#shopId' :'/'}>
+                 Shop
+                </a>
+              </li>
+             
+              <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/faq">
                   FAQ
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/register">
+                  Register
                 </Link>
               </li>
 
@@ -62,17 +90,19 @@ const Header = () => {
 
 
               <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Orders
+                <Link className="nav-link" to="/admin">
+                  Admin Dashboard
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Log Out
+                <Link className="nav-link" to="/orders">
+                  Orders
                 </Link>
               </li>
-              <li className="nav-item cart-item">
-                <Link className="nav-link" to="/cart">
+              
+          
+              <li className="nav-link cart-shop">
+                <Link className="nav-item" to="/cart">
                 <IconButton aria-label="cart">
                 <StyledBadge badgeContent={cartItems.length} color="secondary">
                 <ShoppingCartIcon />
@@ -81,6 +111,7 @@ const Header = () => {
                 </Link>
               </li>
 
+              
             
             </ul>
           </div>
